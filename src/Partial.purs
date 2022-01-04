@@ -10,6 +10,6 @@ crash = crashWith "Partial.crash: partial function"
 
 -- | A partial function which crashes on any input with the specified message.
 crashWith :: forall a. Partial => String -> a
-crashWith = _crashWith
+crashWith = stop
 
-foreign import _crashWith :: forall a. String -> a
+foreign import stop :: forall a. String -> a

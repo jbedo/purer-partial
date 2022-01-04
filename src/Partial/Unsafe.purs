@@ -13,11 +13,11 @@ import Partial (crashWith)
 -- either a dependency or reimplementing it here.
 -- Rather than doing that, we'll use a type signature
 -- of `a -> b` instead.
-foreign import _unsafePartial :: forall a b. a -> b
+foreign import unsafePartial_ :: forall a b. a -> b
 
 -- | Discharge a partiality constraint, unsafely.
 unsafePartial :: forall a. (Partial => a) -> a
-unsafePartial = _unsafePartial
+unsafePartial = unsafePartial_
 
 -- | A function which crashes with the specified error message.
 unsafeCrashWith :: forall a. String -> a
